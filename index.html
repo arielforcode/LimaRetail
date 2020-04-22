@@ -1,0 +1,231 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Google Ads Final</title>
+</head>
+
+<body class="grey lighten-3">
+
+    <!-- NAVBAR -->
+    <nav class="z-depth-0 grey lighten-4">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo">
+
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="logged-in" style="display: none;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-account">Cuenta</a>
+                </li>
+               
+                <li class="logged-in" style="display: none;">
+                    <a href="#" class="grey-text" id="logout">Salir</a>
+                </li>
+
+                <li class="logged-out" style="display: none;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-login">Iniciar Sesion</a>
+                </li>
+                <li class="logged-out" style="display: none;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Registrate</a>
+                </li>
+                </span>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- SIGN UP MODAL -->
+    <div id="modal-signup" class="modal">
+        <div class="modal-content">
+            <h4>Sign up</h4><br />
+            <form id="signup-form">
+                <div class="input-field">
+                    <input type="email" id="signup-email" required />
+                    <label for="signup-email">Correo Electronico</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="signup-password" required />
+                    <label for="signup-password">Contraseña</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="signup-bio" required />
+                    <label for="signup-bio">Cuentas</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Registrate</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <h4>Login</h4><br />
+            <form id="login-form">
+                <div class="input-field">
+                    <input type="email" id="login-email" required />
+                    <label for="login-email">Correo Electronico</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="login-password" required />
+                    <label for="login-password">Contraseña</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Iniciar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ACCOUNT MODAL -->
+    <div id="modal-account" class="modal">
+        <div class="modal-content center-align">
+            <h4>Detalles de la cuenta</h4><br />
+            <div class="account-details">
+
+            </div>
+        </div>
+    </div>
+
+    <style>
+        #ariel {
+            width: 100%;
+            max-height: 700px;
+            overflow: scroll;
+            padding: 10px;
+        }
+        .table {
+            
+            border: 1px solid black;
+        }
+        
+        .table .sticky {
+            position: sticky;
+            left: 0;
+        }
+        
+        .table tbody tr .sticky {
+            background: green;
+        }
+        
+        .table thead tr .sticky {
+            background: black;
+        }
+        colgroup {
+        border: black 2px solid;
+        }
+    </style>
+
+    <!-- GUIDE LIST -->
+    <div class="container" style="width: 100%; height: 700px;">
+        <div class="collapsible guides" style="width: 100%; height: 100%;">
+            <div id="ariel">
+                <script>
+                    document.body.style.zoom = "80%"
+                </script>
+                <!-- Aqui se carga la lista de firebase-->
+                <table class="table table-bordered table-dark">
+
+                    <thead>
+
+                        <tr>
+                            <th colspan="1" class="sticky" id="colita"></th>
+                            <th colspan="12" id="mesActual">
+                                <center>ariel</center>
+                            </th>
+                            <th colspan="4">
+                                <center>Gasto</center>
+                            </th>
+                            
+                        </tr>
+                        <tr>
+                            <th colspan="1" colspan="1" class="sticky"> <center></center></th>
+                            <th colspan="3"> <center>Impresiones</center></th>
+                            <th colspan="3"> <center>clicks</center></th>
+                            <th colspan="3"> <center>ctr</center></th>
+                            <th colspan="3"> <center>costo medio</center></th>
+                            <th colspan="4"></th>
+                        </tr>
+                        
+
+
+
+                        <tr>
+
+                            <th scope="col" colspan="1" class="sticky"> Nombre</th>
+                            <!--Seccion de la columna de diciemnbre en html-->
+                            <th>Impresiones</th>
+                            <th>Marzo</th>
+                            <th>%var</th>
+
+                            <th>clicks</th>
+                            <th>Marzo</th>
+                            <th>%var</th>
+
+                            <th>ctr</th>
+                            <th>Marzo</th>
+                            <th>%var</th>
+
+                            <th>Costo Medio</th>
+                            <th>Marzo</th>
+                            <th>%var</th>
+
+                            <th>ABRIL</th>
+                            <th>Marzo</th>
+                            <th>% var</th>
+                            <th>Feb</th>
+
+
+
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody style="background: rgba(128, 255, 0, 0.3); border: 1px solid rgba(100, 200, 0, 0.3);" id="tabla">
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+    <script>
+        // Initialize Firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyDwvJdH0XTUJoqlAlsPkdbxzglmAOX7bTg",
+            authDomain: "cinebol2019.firebaseapp.com",
+            databaseURL: "https://cinebol2019.firebaseio.com",
+            projectId: "cinebol2019",
+            storageBucket: "cinebol2019.appspot.com",
+            messagingSenderId: "366738389174",
+            appId: "1:366738389174:web:1d91d145a20cc0aff28e17",
+            measurementId: "G-6JQCWXSJV2"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // make auth and firestore references
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // update firestore settings
+        db.settings({
+            timestampsInSnapshots: true
+        });
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>
