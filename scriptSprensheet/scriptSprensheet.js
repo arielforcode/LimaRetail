@@ -29,7 +29,7 @@ function myFunction() {
                       .replace("%col4%", encodeURIComponent(file6))
                       .replace("%col5%", encodeURIComponent(file7))
                       .replace("%cpl%", encodeURIComponent(file8))
-                      .replace("%mes%", encodeURIComponent(hoja+3));
+                      .replace("%mes%", encodeURIComponent(hoja));
           //Logger.log(url);
           var response = UrlFetchApp.fetch(url);
            //imprimir la peticion get del endpoint para el almacenamiento de los datos
