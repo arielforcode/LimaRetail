@@ -1,6 +1,9 @@
-<html lang="en">
+<html lang="es">
 
 <head>
+    <script src="assets/jquery-2.1.3.js"></script>
+		<script src="tableHeadFixer.js"></script>
+		<link rel="stylesheet" href="../assets/bootstrap-3.3.2/css/bootstrap.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -9,8 +12,20 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Google Ads Final</title>
-</head>
+    <style>
+        #parent {
+            height: 300px;
+        }
+        
+        #fixTable {
+            width: 1800px !important;
+        }
+    </style>
 
+    <script>
+        
+    </script>
+</head>
 <body class="grey lighten-3">
 
     <!-- NAVBAR -->
@@ -90,105 +105,135 @@
     </div>
 
     <style>
-        #ariel {
+       
+       #ariel {
             width: 100%;
             max-height: 700px;
             overflow: scroll;
             padding: 10px;
         }
+        
         .table {
             
             border: 1px solid black;
         }
-        
+
+        .table thead{
+            overflow-y: unset;
+            background-color: #000000;
+        }
+       
         .table .sticky {
             position: sticky;
             left: 0;
+            top: 0px;
+            
         }
-        
+        .table thead tr th .sticky{
+            position: sticky;
+            
+        }
         .table tbody tr .sticky {
             background: green;
+            
         }
         
         .table thead tr .sticky {
             background: black;
         }
+        
         colgroup {
         border: black 2px solid;
         }
+        
     </style>
 
     <!-- GUIDE LIST -->
-    <div class="container" style="width: 100%; height: 700px;">
+    <div class="container" style="width: 1200px; height: 700px;">
         <div class="collapsible guides" style="width: 100%; height: 100%;">
+
+
             <div id="ariel">
                 <script>
                     document.body.style.zoom = "80%"
                 </script>
-                <!-- Aqui se carga la lista de firebase-->
-                <table class="table table-bordered table-dark">
+                <table class="table table-bordered table-dark" id="fixTable" >
 
-                    <thead>
+                    <thead >
 
-                        <tr>
-                            <th colspan="1" class="sticky" id="colita"></th>
-                            <th colspan="12" id="mesActual">
+                        <tr class="sticky">
+                            <th colspan="1" class="sticky" rowspan="3">Nombre</th>
+                            <th colspan="12" id="mesActual" class="sticky">
                                 <center>ariel</center>
                             </th>
-                            <th colspan="4">
-                                <center>Gasto</center>
+                            <th colspan="3" class="sticky" >
+                                <center>Leads</center>
                             </th>
-                            
+                            <th colspan="3" class="sticky">
+                                <center>Abierto Sin gestion</center>
+                            </th>
                         </tr>
-                        <tr>
-                            <th colspan="1" colspan="1" class="sticky"> <center></center></th>
-                            <th colspan="3"> <center>Impresiones</center></th>
-                            <th colspan="3"> <center>clicks</center></th>
-                            <th colspan="3"> <center>ctr</center></th>
-                            <th colspan="3"> <center>costo medio</center></th>
-                            <th colspan="4"></th>
+                        <tr >
+                            <th colspan="3" > <center>Impresiones</center></th>
+                            <th colspan="3" > <center>clicks</center></th>
+                            <th colspan="3" > <center>ctr</center></th>
+                            <th colspan="3" > <center>costo medio</center></th>
+                            <th colspan="3" ></th>
+                            <th colspan="3" ></th>
                         </tr>
                         
 
 
 
-                        <tr>
+                        <tr >
 
-                            <th scope="col" colspan="1" class="sticky"> Nombre</th>
                             <!--Seccion de la columna de diciemnbre en html-->
-                            <th>Impresiones</th>
-                            <th>Marzo</th>
-                            <th>%var</th>
+                            <th class="sticky">Impresiones</th>
+                            <th class="sticky">Marzo</th>
+                            <th class="sticky">%var</th>
 
-                            <th>clicks</th>
-                            <th>Marzo</th>
-                            <th>%var</th>
+                            <th class="sticky">clicks</th>
+                            <th class="sticky">Marzo</th>
+                            <th class="sticky">%var</th>
 
-                            <th>ctr</th>
-                            <th>Marzo</th>
-                            <th>%var</th>
+                            <th class="sticky">ctr</th>
+                            <th class="sticky">Marzo</th>
+                            <th class="sticky">%var</th>
 
-                            <th>Costo Medio</th>
-                            <th>Marzo</th>
-                            <th>%var</th>
+                            <th class="sticky" >Costo Medio</th>
+                            <th class="sticky">Marzo</th>
+                            <th class="sticky">%var</th>
 
-                            <th>ABRIL</th>
-                            <th>Marzo</th>
-                            <th>% var</th>
-                            <th>Feb</th>
+                            <th class="sticky">Marzo</th>
+                            <th class="sticky">Febrero</th>
+                            <th class="sticky">% var</th>
+                            
 
+                            <th class="sticky">Marzo</th>
+                            <th class="sticky">Febrero</th>
+                            <th class="sticky">% var</th>
 
 
 
                         </tr>
 
                     </thead>
+                   <!-- <tbody>
+                        <tr><td colspan="19"></td></tr>
+                        <tr><td colspan="19"></td></tr>
+                        <tr><td colspan="19"></td></tr>
+                        <tr><td colspan="19"></td></tr>
+                        <tr><td colspan="19"></td></tr>
+                        <tr><td colspan="19"></td></tr>
+                        <br>
+                    </tbody>-->
 
                     <tbody style="background: rgba(128, 255, 0, 0.3); border: 1px solid rgba(100, 200, 0, 0.3);" id="tabla">
 
 
                     </tbody>
                 </table>
+                
             </div>
 
 
