@@ -6,7 +6,6 @@ import * as admin from 'firebase-admin';
 
 admin.initializeApp(functions.config().firebase);
 
-//creacion del endpoint que recibe datos del google ads
 exports.add=functions.https.onRequest((req,res)=>{
     admin.firestore().collection('Datos').add({
         idCuenta:req.query.idCuenta,
@@ -18,7 +17,8 @@ exports.add=functions.https.onRequest((req,res)=>{
         impresiones:req.query.impresiones,
         costo:req.query.costo,
         ctr:req.query.ctr,
-        fecha:req.query.fecha
+        fecha:req.query.fecha,
+        nombreCuenta:req.query.nombreCuenta
     }).then(r=>{
         res.send('completado exitosamente')
     }).catch(err=>{
@@ -26,24 +26,61 @@ exports.add=functions.https.onRequest((req,res)=>{
     })
 });
 
-//endpoitn para recibir datos del sprensheet
+
 exports.add1=functions.https.onRequest((req,res)=>{
     admin.firestore().collection('Sprensheet').add({
+        nombres:req.query.nombres,
         idcampanas:req.query.idcampanas,
-            nombres:req.query.nombres,
-            col1:req.query.col1,
-            col2:req.query.col2,
-            col3:req.query.col3,
-            col4:req.query.col4,
-            col5:req.query.col5,
-            cpl:req.query.cpl,
-            mes:req.query.mes
+        lead:req.query.lead,
+        conversionS:req.query.conversionS,
+        VentasLeadMes:req.query.VentasLeadMes,
+
+        VentasMesFacturadas:req.query.VentasMesFacturadas,
+        EfectividaddeLavVenta:req.query.EfectividaddeLavVenta,
+        EfectividaddeVentaFacturada:req.query.EfectividaddeVentaFacturada,
+        costoPorLead:req.query.costoPorLead,
+        CostoPorVentaLeadMes:req.query.CostoPorVentaLeadMes,
+        CostoPorVentaFacturada:req.query.CostoPorVentaFacturada,
+
+        merma:req.query.merma,
+        prioridad1:req.query.prioridad1,
+        CostoPrioridad1:req.query.CostoPrioridad1,
+        TimepoAtencionPrioridad:req.query.TimepoAtencionPrioridad,
+        conversionpociento:req.query.conversionpociento,
+        abiertoSinGestion:req.query.abiertoSinGestion,
+        calificado:req.query.calificado,
+        convertido:req.query.convertido,
+
+        soloConsulta:req.query.soloConsulta,
+        compraFutura:req.query.compraFutura,
+        DatInvalida:req.query.DatInvalida,
+        CostoAbierto:req.query.CostoAbierto,
+        CostoCalificado:req.query.CostoCalificado,
+        CostoConvertido:req.query.CostoConvertido,
+
+        CostoSoloPrecio:req.query.CostoSoloPrecio,
+        CostoCompraFutura:req.query.CostoCompraFutura,
+        costoDataInvalida:req.query.costoDataInvalida,
+        mesGestion:req.query.mesGestion
     }).then(r=>{
         res.send('completado exitosamente')
     }).catch(err=>{
         res.send('Error en la transaccion')
     })
 });
+
+exports.grupos=functions.https.onRequest((req,res)=>{
+    admin.firestore().collection('Grupos').add({
+        idcampanas:req.query.idcampanas,
+        icuenta:req.query.icuenta,
+        nrogrupo:req.query.nrogrupo    
+    }).then(r=>{
+        res.send('completado exitosamente')
+    }).catch(err=>{
+        res.send('Error en la transaccion')
+    })
+});
+
 
 //ursl modelo para los endpoitn
 //==============url de google ads
